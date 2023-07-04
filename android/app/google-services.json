@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "363622380219",
+    "project_id": "io-extended-gdg-la-paz",
+    "storage_bucket": "io-extended-gdg-la-paz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363622380219:android:ca0a0530fed5909e2baf9e",
+        "android_client_info": {
+          "package_name": "com.gdg.lapaz.ioextended"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363622380219-6hfemncu37lkfv0u1hi1330885bthbej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4vL-vWvZvvSfRzyUIUWzUh98FcOEN_so"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363622380219-6hfemncu37lkfv0u1hi1330885bthbej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

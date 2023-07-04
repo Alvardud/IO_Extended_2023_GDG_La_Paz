@@ -1,4 +1,4 @@
-package com.example.io_extended_2023_gdg_la_paz
+package com.gdg.lapaz.ioextended
 
 import io.flutter.embedding.android.FlutterActivity
 
