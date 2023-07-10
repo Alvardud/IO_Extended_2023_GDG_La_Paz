@@ -185,7 +185,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   void goToHome() {
-    Navigator.pushReplacementNamed(context, Routes.home);
+    Navigator.pushReplacementNamed(context, Routes.portal);
   }
 }
 
