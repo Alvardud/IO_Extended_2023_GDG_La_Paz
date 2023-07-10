@@ -2,6 +2,8 @@ import 'package:io_extended_2023_gdg_la_paz/main.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/onboarding/onboarding_page.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/portal/portal_page.dart';
 
 class InitAppController {
   InitAppController._();
@@ -25,7 +27,7 @@ class InitAppController {
     //}
 
     navigatorKey.currentState
-        ?.pushNamedAndRemoveUntil(HomePage.route, (route) => false);
+        ?.pushNamedAndRemoveUntil(OnboardingPage.route, (route) => false);
     return;
   }
 }

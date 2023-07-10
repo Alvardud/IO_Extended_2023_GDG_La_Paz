@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:io_extended_2023_gdg_la_paz/src/config/middleware.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/config/service_config.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/models/user.dart';
