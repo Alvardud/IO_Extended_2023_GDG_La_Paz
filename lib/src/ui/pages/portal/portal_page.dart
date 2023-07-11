@@ -29,7 +29,7 @@ class PortalPage extends StatefulWidget {
 }
 
 class _PortalPageState extends State<PortalPage> {
-  int selectedIndex = 0;
+  final ValueNotifier<int> selectedIndexNotifier = ValueNotifier<int>(0);
 
   final List<_PortalNavItem> _items = [
     const _PortalNavItem(
@@ -68,27 +68,28 @@ class _PortalPageState extends State<PortalPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _items[selectedIndex].page,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        items: _items
-            .map(
-              (item) => BottomNavigationBarItem(
-                backgroundColor: AppColors.googleBlue,
-                icon: item.icon,
-                label: item.label,
-              ),
-            )
-            .toList(),
-        onTap: (index) {
-          setState(
-            () {
-              selectedIndex = index;
+    return ValueListenableBuilder<int>(
+      valueListenable: selectedIndexNotifier,
+      builder: (context, selectedIndex, child) {
+        return Scaffold(
+          body: _items[selectedIndex].page,
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: selectedIndex,
+            items: _items
+                .map(
+                  (item) => BottomNavigationBarItem(
+                    backgroundColor: AppColors.googleBlue,
+                    icon: item.icon,
+                    label: item.label,
+                  ),
+                )
+                .toList(),
+            onTap: (index) {
+              selectedIndexNotifier.value = index;
             },
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

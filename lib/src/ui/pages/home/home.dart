@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home_service.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home_store.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/widgets/option_card.dart';
@@ -43,12 +44,14 @@ class _HomePageState extends State<HomePage> {
               VerticalSpacing.l,
               OptionCard(
                 backgroundColor: const Color(0xff121215),
-                label: 'Cronograma',
+                label: 'Agenda',
                 padding: const EdgeInsets.only(
                   top: 8,
                 ),
                 imagePath: 'assets/images/bus.png',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AgendaPage.route);
+                },
               ),
               VerticalSpacing.l,
               OptionCard(

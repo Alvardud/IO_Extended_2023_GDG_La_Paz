@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/config/init_app.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/config/register_routes.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home_store.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +42,8 @@ class _MyAppState extends State<MyApp> {
 
         return MultiProvider(
           providers: [
-            ChangeNotifierProvider(create: (context) => HomeStore.store)
+            ChangeNotifierProvider(create: (context) => HomeStore.store),
+            ChangeNotifierProvider(create: (context) => AgendaStore.store)
           ],
           child: MaterialApp(
             navigatorKey: navigatorKey,

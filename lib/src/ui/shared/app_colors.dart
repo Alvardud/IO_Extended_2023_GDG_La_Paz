@@ -27,4 +27,11 @@ class AppColors {
   static const googleGreen = Color(0xff34a853);
   static const googleGrey200 = Color(0xffe8eaed);
   static const googleGrey900 = Color(0xff202124);
+
+  static const googleColors = [
+    googleBlue,
+    googleRed,
+    googleYellow,
+    googleGreen,
+  ];
 }
