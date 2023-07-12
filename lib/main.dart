@@ -6,6 +6,7 @@ import 'package:io_extended_2023_gdg_la_paz/src/config/register_routes.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home_store.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/splash_screen.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/team/team_store.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -43,7 +44,8 @@ class _MyAppState extends State<MyApp> {
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (context) => HomeStore.store),
-            ChangeNotifierProvider(create: (context) => AgendaStore.store)
+            ChangeNotifierProvider(create: (context) => AgendaStore.store),
+            ChangeNotifierProvider(create: (context) => TeamStore.store),
           ],
           child: MaterialApp(
             navigatorKey: navigatorKey,
