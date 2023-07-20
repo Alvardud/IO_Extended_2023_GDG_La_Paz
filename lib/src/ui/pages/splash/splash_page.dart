@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/config/init_app.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/splash/splash_service.dart';
 
 class SplashScreen extends StatefulWidget {
   static const route = 'splash_screen';
@@ -11,9 +12,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class SplashScreenState extends State<SplashScreen> {
+  // final splashService = SplashService('usuarios');
+  
   @override
   void didChangeDependencies() async {
     await InitAppController.instance.initApp();
+    // await splashService.initApp();
     super.didChangeDependencies();
   }
 

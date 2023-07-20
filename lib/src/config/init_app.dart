@@ -1,9 +1,11 @@
 import 'package:io_extended_2023_gdg_la_paz/main.dart';
-import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/onboarding/onboarding_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/portal/portal_page.dart';
+
+import '../plugins/auth/auth.dart';
+import '../ui/pages/auth/login_page.dart';
 
 class InitAppController {
   InitAppController._();
@@ -15,17 +17,15 @@ class InitAppController {
   }
 
   Future<void> initApp() async {
-    Map<String, dynamic> data = {};
-    data['isLogin'] = false;
-
     //validar auth
-    final token = await Auth().tokenApi;
-    //if (token == '') {
-    //  navigatorKey.currentState
-    //      ?.pushNamedAndRemoveUntil(LoginPage.route, (route) => false);
-    //  return;
-    //}
-
+    final uid =  Auth().getUid();
+    if (uid == null) {
+      
+      navigatorKey.currentState
+         ?.pushNamedAndRemoveUntil(LoginPage.route, (route) => false);
+        return;
+    }
+    // await Future.delayed(const Duration(seconds: 2));
     navigatorKey.currentState
         ?.pushNamedAndRemoveUntil(OnboardingPage.route, (route) => false);
     return;
