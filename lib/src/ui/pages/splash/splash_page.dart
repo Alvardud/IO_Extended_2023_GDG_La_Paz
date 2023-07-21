@@ -13,17 +13,12 @@ class SplashScreen extends StatefulWidget {
 
 class SplashScreenState extends State<SplashScreen> {
   // final splashService = SplashService('usuarios');
-  
-  @override
-  void didChangeDependencies() async {
-    await InitAppController.instance.initApp();
-    // await splashService.initApp();
-    super.didChangeDependencies();
-  }
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => InitAppController.instance.initApp());
   }
 
   @override

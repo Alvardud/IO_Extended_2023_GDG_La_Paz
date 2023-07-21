@@ -40,38 +40,40 @@ class _MyAppState extends State<MyApp> {
     return FutureBuilder(
       future: InitAppController.instance.initTheme(),
       builder: (context, snapshot) {
-          final border = OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8.0),
-        borderSide: const BorderSide(
-            color: AppColors.separator, width: 1, style: BorderStyle.solid));
-    final borderFocus = OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8.0),
-        borderSide: const BorderSide(
-            color: AppColors.textDark, width: 1, style: BorderStyle.solid));
+        final border = OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: const BorderSide(
+                color: AppColors.separator,
+                width: 1,
+                style: BorderStyle.solid));
+        final borderFocus = OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: const BorderSide(
+                color: AppColors.textDark, width: 1, style: BorderStyle.solid));
         final baseTheme = ThemeData(
-          inputDecorationTheme: InputDecorationTheme(
-          iconColor: AppColors.googleGrey900,
-          hintStyle: const TextStyle(fontSize: 20, color: AppColors.labelInput),
-          labelStyle: const TextStyle(fontSize: 20, color: AppColors.labelInput),
-          floatingLabelStyle: const TextStyle(fontSize: 10),
-          fillColor: AppColors.primaryLight,
-          isDense: true,
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
-          errorStyle: const TextStyle(fontSize: 10),
-          border: border,
-          focusedBorder: borderFocus,
-          disabledBorder: border,
-          enabledBorder: border)
-        );
+            inputDecorationTheme: InputDecorationTheme(
+                iconColor: AppColors.googleGrey900,
+                hintStyle:
+                    const TextStyle(fontSize: 20, color: AppColors.labelInput),
+                labelStyle:
+                    const TextStyle(fontSize: 20, color: AppColors.labelInput),
+                floatingLabelStyle: const TextStyle(fontSize: 10),
+                fillColor: AppColors.primaryLight,
+                isDense: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
+                errorStyle: const TextStyle(fontSize: 10),
+                border: border,
+                focusedBorder: borderFocus,
+                disabledBorder: border,
+                enabledBorder: border));
 
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (context) => HomeStore.store),
             ChangeNotifierProvider(create: (context) => AgendaStore.store),
             ChangeNotifierProvider(
-              lazy: true,
-              create: (context) => UserStore.store)
+                lazy: true, create: (context) => UserStore.store)
           ],
           child: MaterialApp(
             navigatorKey: navigatorKey,

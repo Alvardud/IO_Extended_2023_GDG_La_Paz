@@ -10,9 +10,8 @@ import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/splash/splash_page.dart
 Map<String, Widget Function(BuildContext)> routes = {
   HomePage.route: (context) => const HomePage(),
   SplashScreen.route: (context) => const SplashScreen(),
-  // Routes.login: (_) => const LoginPage(),
+  Routes.login: (_) => const LoginPage(),
   Routes.onboarding: (_) => const OnboardingPage(),
   Routes.portal: (_) => const PortalPage(),
   Routes.agenda: (_) => const AgendaPage(),
-  
 };
