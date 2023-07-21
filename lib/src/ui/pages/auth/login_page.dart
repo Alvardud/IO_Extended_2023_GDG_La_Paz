@@ -111,12 +111,15 @@ class _LoginPageState extends State<LoginPage> {
                         ? const Center(
                             child: CircularProgressIndicator(),
                           )
-                        : ElevatedButton(
-                            onPressed: _onTapLogin,
-                            child: const Text('Log In',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ))),
+                        : SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                              onPressed: _onTapLogin,
+                              child: const Text('Log In',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ))),
+                        ),
                   ),
                   const SizedBox(
                     height: 8,

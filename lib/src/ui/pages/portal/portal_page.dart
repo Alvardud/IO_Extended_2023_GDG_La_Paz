@@ -56,8 +56,8 @@ class _PortalPageState extends State<PortalPage> {
       page: SponsorsPage(),
       index: 2,
     ),
-    const _PortalNavItem(
-      icon: Icon(
+     _PortalNavItem(
+      icon: const Icon(
         Icons.local_hospital,
       ),
       label: 'Equipo',

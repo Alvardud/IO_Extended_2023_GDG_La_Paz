@@ -8,7 +8,7 @@ import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/auth/user_store.dart';
 
 import '../../../config/middleware.dart';
-import '../portal/portal_page.dart';
+import '../onboarding/onboarding_page.dart';
 
 class LoginService extends ServiceConfig{
   final store = UserStore.store;
@@ -21,7 +21,7 @@ class LoginService extends ServiceConfig{
     final response = await firestoreFetch('/$uid');
     if (response.status == StatusNetwork.connected) {
       store.user = UserApp.fromMap(response.data);
-      navigatorKey.currentState?.pushNamedAndRemoveUntil(PortalPage.route, (route) => false);
+      navigatorKey.currentState?.pushNamedAndRemoveUntil(OnboardingPage.route, (route) => false);
     }else{
       throw 'Ocurrio un error inesperado';
     }
