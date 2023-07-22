@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/plugins/firebase/firestore_service.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home_service.dart';
@@ -23,6 +25,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final service = HomeService(HomePage.route, 'usuarios');
+  final counterNotifier = ValueNotifier<int>(1);
 
   @override
   void initState() {
@@ -65,12 +68,54 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               VerticalSpacing.l,
-              OptionCard(
-                label: 'Nuestro equipo',
-                backgroundColor: AppColors.googleYellow,
-                imagePath: 'assets/images/dots.png',
-                onPressed: () {},
-              )
+              GestureDetector(
+                onTap: () {},
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: AppColors.googleGreen,
+                    ),
+                    child: const Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 12,
+                          child: SizedBox(
+                            width: 540,
+                            child: Center(
+                              child: Text(
+                                'Cuestionarios',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 8,
+                          child: Padding(
+                            padding: EdgeInsets.all(0),
+                            child: SizedBox(
+                              height: 100,
+                              child: Icon(
+                                Icons.question_mark,
+                                size: 80,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
