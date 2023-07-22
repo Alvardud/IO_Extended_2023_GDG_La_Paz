@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextButton(
                       onPressed: _forgotPassword,
                       child: const Text(
-                        'Olvidaste tu contraseña?',
+                        'Carmbiar Contraseña',
                         style: TextStyle(
                           color:Colors.black,
                         ),
