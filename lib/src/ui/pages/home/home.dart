@@ -8,6 +8,8 @@ import 'package:io_extended_2023_gdg_la_paz/src/ui/shared/app_colors.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/shared/spacing.dart';
 import 'package:provider/provider.dart';
 
+import '../sponsors/sponsors_page.dart';
+
 GlobalKey<ScaffoldMessengerState> homePage =
     GlobalKey<ScaffoldMessengerState>();
 
@@ -58,7 +60,9 @@ class _HomePageState extends State<HomePage> {
                 label: 'Sponsors',
                 backgroundColor: AppColors.googleBlue,
                 imagePath: 'assets/images/world.png',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, SponsorsPage.route);
+                },
               ),
               VerticalSpacing.l,
               OptionCard(
@@ -68,37 +72,6 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {},
               )
             ],
-          ),
-        ),
-      ),
-    );
-
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: ScaffoldMessenger(
-        key: homePage,
-        child: Scaffold(
-          backgroundColor: theme.background,
-          appBar: AppBar(
-            backgroundColor: theme.background,
-            elevation: 0,
-            title: Text(
-              'Google IO Extended',
-              style: TextStyle(color: theme.fontColor),
-            ),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.all(16),
-            child: ListView.builder(
-              itemCount: store.users.length,
-              itemBuilder: (context, index) {
-                final user = store.users[index];
-                return ListTile(
-                  title: Text('${user.firstName} ${user.lastName}'),
-                  subtitle: Text(user.email),
-                );
-              },
-            ),
           ),
         ),
       ),

@@ -1,11 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_service.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
-import 'package:io_extended_2023_gdg_la_paz/src/ui/shared/app_colors.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/widgets/agenda_card.dart';
+
 import 'package:io_extended_2023_gdg_la_paz/src/ui/shared/spacing.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/widgets/arrow_back.dart';
 import 'package:provider/provider.dart';
 
 class AgendaPage extends StatefulWidget {
@@ -23,7 +23,8 @@ class _AgendaPageState extends State<AgendaPage> {
   @override
   void initState() {
     super.initState();
-    service.getTalks();
+    service.getTechnicalTalks();
+    service.getCodelabs();
   }
 
   @override
@@ -31,119 +32,58 @@ class _AgendaPageState extends State<AgendaPage> {
     final theme = ThemeController.instance;
     final store = context.watch<AgendaStore>();
 
-    return Scaffold(
-      backgroundColor: theme.background,
-      appBar: AppBar(
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
         backgroundColor: theme.background,
-        elevation: 0,
-        title: Text(
-          'Talks',
-          style: TextStyle(color: theme.fontColor),
+        appBar: AppBar(
+          backgroundColor: theme.background,
+          elevation: 0,
+          title: Text(
+            'Agenda',
+            style: TextStyle(color: theme.fontColor),
+          ),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                text: 'Charlas',
+              ),
+              Tab(
+                text: 'Codelabs',
+              ),
+            ],
+          ),
+          leading: const ArrowBack(),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView.separated(
-          separatorBuilder: (context, index) => VerticalSpacing.l,
-          itemCount: store.talks.length,
-          itemBuilder: (context, index) {
-            final talk = store.talks[index];
-            final isTalk = talk.type == 'talk' || talk.type == 'codelab';
-            return Column(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: const Radius.circular(12),
-                      topRight: const Radius.circular(12),
-                      bottomLeft: Radius.circular(isTalk ? 0 : 12),
-                      bottomRight: Radius.circular(isTalk ? 0 : 12),
-                    ),
-                    color: AppColors.googleColors[
-                        Random().nextInt(AppColors.googleColors.length)],
-                  ),
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 8,
-                        child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  talk.title,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  '${talk.startHour} - ${talk.endHour}',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            )),
-                      ),
-                      const SizedBox(
-                        width: 12,
-                      ),
-                      talk.speaker.photoPath.isEmpty
-                          ? const SizedBox()
-                          : Expanded(
-                              flex: 4,
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        talk.speaker.photoPath,
-                                      ),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  height: 110,
-                                  width: 110,
-                                ),
-                              ),
-                            )
-                    ],
-                  ),
-                ),
-                if (talk.type == 'talk' || talk.type == 'codelab')
-                  Container(
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      color: AppColors.googleGrey900,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(12),
-                        bottomRight: Radius.circular(12),
-                      ),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 16,
-                    ),
-                    child: Text(
-                      talk.speaker.name,
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )
-              ],
-            );
-          },
+        body: TabBarView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: ListView.separated(
+                separatorBuilder: (context, index) => VerticalSpacing.l,
+                itemCount: store.technnicalTalks.length,
+                itemBuilder: (context, index) {
+                  final talk = store.technnicalTalks[index];
+                  return AgendaCard(
+                    talk: talk,
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: ListView.separated(
+                separatorBuilder: (context, index) => VerticalSpacing.l,
+                itemCount: store.codelabs.length,
+                itemBuilder: (context, index) {
+                  final talk = store.codelabs[index];
+                  return AgendaCard(
+                    talk: talk,
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

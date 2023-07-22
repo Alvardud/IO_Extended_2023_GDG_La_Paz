@@ -51,22 +51,24 @@ class _MyAppState extends State<MyApp> {
             borderSide: const BorderSide(
                 color: AppColors.textDark, width: 1, style: BorderStyle.solid));
         final baseTheme = ThemeData(
-            inputDecorationTheme: InputDecorationTheme(
-                iconColor: AppColors.googleGrey900,
-                hintStyle:
-                    const TextStyle(fontSize: 20, color: AppColors.labelInput),
-                labelStyle:
-                    const TextStyle(fontSize: 20, color: AppColors.labelInput),
-                floatingLabelStyle: const TextStyle(fontSize: 10),
-                fillColor: AppColors.primaryLight,
-                isDense: true,
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
-                errorStyle: const TextStyle(fontSize: 10),
-                border: border,
-                focusedBorder: borderFocus,
-                disabledBorder: border,
-                enabledBorder: border));
+          inputDecorationTheme: InputDecorationTheme(
+            iconColor: AppColors.googleGrey900,
+            hintStyle:
+                const TextStyle(fontSize: 20, color: AppColors.labelInput),
+            labelStyle:
+                const TextStyle(fontSize: 20, color: AppColors.labelInput),
+            floatingLabelStyle: const TextStyle(fontSize: 10),
+            fillColor: AppColors.primaryLight,
+            isDense: true,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
+            errorStyle: const TextStyle(fontSize: 10),
+            border: border,
+            focusedBorder: borderFocus,
+            disabledBorder: border,
+            enabledBorder: border,
+          ),
+        );
 
         return MultiProvider(
           providers: [

@@ -17,17 +17,27 @@ class InitAppController {
   }
 
   void initApp() {
+    navigatorKey.currentState?.pushNamedAndRemoveUntil(
+      OnboardingPage.route,
+      (route) => false,
+    );
+    return;
+
     //validar auth
     final uid = Auth().getUid();
     if (uid == null) {
-      navigatorKey.currentState
-          ?.pushNamedAndRemoveUntil(LoginPage.route, (route) => false);
+      navigatorKey.currentState?.pushNamedAndRemoveUntil(
+        LoginPage.route,
+        (route) => false,
+      );
       return;
     }
     log('entra tambien aca');
     // await Future.delayed(const Duration(seconds: 2));
-    navigatorKey.currentState
-        ?.pushNamedAndRemoveUntil(OnboardingPage.route, (route) => false);
+    navigatorKey.currentState?.pushNamedAndRemoveUntil(
+      OnboardingPage.route,
+      (route) => false,
+    );
     return;
   }
 }
