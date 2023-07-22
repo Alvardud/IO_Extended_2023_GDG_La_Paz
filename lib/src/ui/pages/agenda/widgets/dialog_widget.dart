@@ -1,5 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_page.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_service.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home_service.dart';
+import 'package:provider/provider.dart';
 
 class DialogWidget extends StatefulWidget {
   final String talk;
@@ -12,9 +18,12 @@ class DialogWidget extends StatefulWidget {
 
 class _DialogWidgetState extends State<DialogWidget> {
   final _textController = TextEditingController(text: '');
+  final auth = Auth();
+
   @override
   Widget build(BuildContext context) {
     DateTime date = DateTime.now();
+    /* final user = AgendaStore.store.user; */
     return AlertDialog(
       title: const Text(
         'Realiza una Pregunta!',
@@ -44,8 +53,8 @@ class _DialogWidgetState extends State<DialogWidget> {
               'charla': widget.talk,
               'estado': false,
               'fecha': date.toString(),
-              'idUsuario': '',
-              'nombreUsuario': '',
+              'idUsuario': /* auth.getUid()*/'',
+              'nombreUsuario': /* '${user.firstName} ${user.lastName}' */'',
               'pregunta': _textController.text,
             });
             Navigator.pop(context);
