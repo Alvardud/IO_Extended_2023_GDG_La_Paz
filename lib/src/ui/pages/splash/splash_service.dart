@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/config/service_config.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/locator/user_locator.dart';
 
 import '../../../../main.dart';
 import '../../../models/user_app.dart';
@@ -13,17 +15,22 @@ class SplashService extends ServiceConfig {
 
   Future<void> initApp() async {
     //validar auth
-    navigatorKey.currentState
-        ?.pushNamedAndRemoveUntil(OnboardingPage.route, (route) => false);
-    return;
     final uid = Auth().getUid();
     if (uid == null) {
       navigatorKey.currentState
           ?.pushNamedAndRemoveUntil(LoginPage.route, (route) => false);
       return;
     }
-    final response = await firestoreFetch('/$uid');
-    store.user = UserApp.fromMap(response.data);
+    // final response = await firestoreFetch('/$uid');
+    final userSnapshot =
+        await FirebaseFirestore.instance.collection('usuarios').doc(uid).get();
+    final userReference =
+        FirebaseFirestore.instance.collection('usuarios').doc(uid);
+    // store.user = UserApp.fromJson(response.data);
+    userLocator.userApp = UserApp.fromSnapshotAndReference(
+      userSnapshot,
+      userReference,
+    );
     await Future.delayed(const Duration(seconds: 2));
     navigatorKey.currentState
         ?.pushNamedAndRemoveUntil(OnboardingPage.route, (route) => false);

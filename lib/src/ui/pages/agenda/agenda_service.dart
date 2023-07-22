@@ -4,7 +4,7 @@ import 'package:io_extended_2023_gdg_la_paz/src/models/user.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
 
-class AgendaService extends ServiceConfig {
+class AgendaService {
   final store = AgendaStore.store;
 
   void getAllTalks() {

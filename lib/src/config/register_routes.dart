@@ -6,6 +6,7 @@ import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/onboarding/onboarding_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/splash/splash_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/sponsors/sponsors_page.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/trivias/trivias_page.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   HomePage.route: (context) => const HomePage(),
@@ -14,4 +15,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   Routes.onboarding: (_) => const OnboardingPage(),
   Routes.agenda: (_) => const AgendaPage(),
   Routes.sponsors: (_) => const SponsorsPage(),
+  Routes.trivias: (_) => const TriviasPage(),
 };

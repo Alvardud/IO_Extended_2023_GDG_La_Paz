@@ -19,7 +19,7 @@ class AgendaPage extends StatefulWidget {
 }
 
 class _AgendaPageState extends State<AgendaPage> {
-  final service = AgendaService(AgendaPage.route, 'usuarios');
+  final service = AgendaService();
   @override
   void initState() {
     super.initState();

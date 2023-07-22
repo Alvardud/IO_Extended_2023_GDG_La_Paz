@@ -3,6 +3,7 @@ import 'dart:io';
 
 mixin Middleware {
   Future<bool> internetConnected() async {
+    return true;
     try {
       final result = await InternetAddress.lookup('google.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
