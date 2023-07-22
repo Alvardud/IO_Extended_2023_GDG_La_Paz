@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_service.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/widgets/dialog_widget.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/shared/app_colors.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/shared/spacing.dart';
 import 'package:provider/provider.dart';
@@ -94,9 +95,7 @@ class _AgendaPageState extends State<AgendaPage> {
                                       showDialog(
                                           context: context,
                                           builder: (context) {
-                                            //TODO: DIAGLOG
-                                            return AlertDialog();
-                                            // return MakeQuestionWidget();
+                                            return DialogWidget();
                                           });
                                     },
                                     child: Container(
