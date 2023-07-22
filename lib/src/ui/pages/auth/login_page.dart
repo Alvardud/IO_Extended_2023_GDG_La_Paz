@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/models/user_auth.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/auth/forgot_password_screen.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/auth/login_service.dart';
 
 import '../../../config/string_validator.dart';
@@ -122,14 +123,14 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 8,
                   ),
-                  // TextButton(
-                  //     onPressed: _forgotPassword,
-                  //     child: const Text(
-                  //       'Forgot your password?',
-                  //       style: TextStyle(
-                  //         color: AppColors.black,
-                  //       ),
-                  //     ))
+                  TextButton(
+                      onPressed: _forgotPassword,
+                      child: const Text(
+                        'Olvidaste tu contraseña?',
+                        style: TextStyle(
+                          color:Colors.black,
+                        ),
+                      ))
                 ],
               ),
             ),
@@ -137,6 +138,10 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void _forgotPassword(){
+    Navigator.pushNamed(context, ForgotPasswordScreen.route);
   }
 
   void _onTapLogin() async {

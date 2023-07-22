@@ -24,6 +24,7 @@ class InitAppController {
 
   void initApp() async {
     //validar auth
+    // await Auth().signOut();
     final uid = Auth().getUid();
     if (uid == null) {
       navigatorKey.currentState?.pushNamedAndRemoveUntil(

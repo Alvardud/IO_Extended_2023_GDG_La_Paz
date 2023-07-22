@@ -1,4 +1,5 @@
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_page.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/auth/forgot_password_screen.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/auth/login_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/onboarding/onboarding_page.dart';
@@ -17,4 +18,5 @@ class Routes {
   static const sponsors = SponsorsPage.route;
   static const trivias = TriviasPage.route;
   static const qrScanner = QRScannerScreen.route;
+  static const forgot = ForgotPasswordScreen.route;
 }
