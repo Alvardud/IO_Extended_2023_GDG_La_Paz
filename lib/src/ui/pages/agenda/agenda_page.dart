@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_service.dart';
@@ -86,6 +87,35 @@ class _AgendaPageState extends State<AgendaPage> {
                                     fontSize: 14,
                                   ),
                                 ),
+                                if (talk.type == 'talk' ||
+                                    talk.type == 'codelab')
+                                  GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            //TODO: DIAGLOG
+                                            return AlertDialog();
+                                            // return MakeQuestionWidget();
+                                          });
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.only(top: 10),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.googleGrey900,
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(10.0),
+                                        child: Text(
+                                          'Pregunta',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
                               ],
                             )),
                       ),
