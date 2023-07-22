@@ -152,7 +152,16 @@ class _LoginPageState extends State<LoginPage> {
         print(e);
         isLoading = false;
         setState(() {});
-        // show  dialog
+           AlertDialog(
+            title: const Text('Upsss'),
+            content: Text(e.toString()),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Close'),
+              ),
+            ],
+          );
       }
     } else {}
   }

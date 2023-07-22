@@ -11,6 +11,7 @@ import '../locator/user_locator.dart';
 import '../models/user_app.dart';
 import '../plugins/auth/auth.dart';
 import '../ui/pages/auth/login_page.dart';
+import 'routes.dart';
 
 class InitAppController {
   InitAppController._();
@@ -41,10 +42,18 @@ class InitAppController {
       userReference,
     );
     // await Future.delayed(const Duration(seconds: 2));
-    navigatorKey.currentState?.pushNamedAndRemoveUntil(
-      HomePage.route,
-      (route) => false,
-    );
-    return;
+    if (userLocator.userApp.role == 0) {
+      navigatorKey.currentState?.pushNamedAndRemoveUntil(
+        HomePage.route,
+        (route) => false,
+      );
+      return;
+    } else {
+      navigatorKey.currentState?.pushNamedAndRemoveUntil(
+        Routes.qrScanner,
+        (route) => false,
+      );
+      return;
+    }
   }
 }

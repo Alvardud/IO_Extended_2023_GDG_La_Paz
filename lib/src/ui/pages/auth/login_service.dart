@@ -8,6 +8,8 @@ import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/auth/user_store.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home.dart';
 
+import '../../../config/routes.dart';
+
 class LoginService extends ServiceConfig {
   final store = UserStore.store;
   LoginService(super.urlBase);
@@ -26,8 +28,21 @@ class LoginService extends ServiceConfig {
       userLocator.userApp =
           UserApp.fromSnapshotAndReference(userSnapshot, reference);
       // navigatorKey.currentState?.pushNamedAndRemoveUntil(PortalPage.route, (route) => false);
-      navigatorKey.currentState
-          ?.pushNamedAndRemoveUntil(HomePage.route, (route) => false);
+      // navigatorKey.currentState
+      //     ?.pushNamedAndRemoveUntil(HomePage.route, (route) => false);
+      if (userLocator.userApp.role == 0) {
+        navigatorKey.currentState?.pushNamedAndRemoveUntil(
+          HomePage.route,
+          (route) => false,
+        );
+        return;
+      } else {
+        navigatorKey.currentState?.pushNamedAndRemoveUntil(
+          Routes.qrScanner,
+          (route) => false,
+        );
+        return;
+      }
     } catch (e) {
       rethrow;
     }

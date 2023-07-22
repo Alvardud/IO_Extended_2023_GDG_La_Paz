@@ -11,6 +11,7 @@ class UserApp {
     required this.score,
     required this.acreditacion,
     required this.id,
+    required this.role,
   });
 
   final String email;
@@ -19,6 +20,7 @@ class UserApp {
   final int score;
   final bool acreditacion;
   final String id;
+  final int role;
 
   static UserApp get empty => UserApp(
         email: '',
@@ -27,6 +29,7 @@ class UserApp {
         score: 0,
         acreditacion: false,
         id: '',
+        role: 0,
       );
 
   UserApp copyWith({
@@ -36,6 +39,7 @@ class UserApp {
     int? score,
     bool? acreditacion,
     String? id,
+    int? role,
   }) {
     return UserApp(
       email: email ?? this.email,
@@ -44,6 +48,7 @@ class UserApp {
       score: score ?? this.score,
       acreditacion: acreditacion ?? this.acreditacion,
       id: id ?? this.id,
+      role: role ?? this.role
     );
   }
 
@@ -69,6 +74,7 @@ class UserApp {
       score: map['score'],
       acreditacion: map['acreditacion'],
       id: reference.id,
+      role: map['role']??0
     );
   }
 
