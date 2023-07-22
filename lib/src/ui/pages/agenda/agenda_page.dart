@@ -95,7 +95,9 @@ class _AgendaPageState extends State<AgendaPage> {
                                       showDialog(
                                           context: context,
                                           builder: (context) {
-                                            return DialogWidget();
+                                            return DialogWidget(
+                                              talk: talk.title,
+                                            );
                                           });
                                     },
                                     child: Container(

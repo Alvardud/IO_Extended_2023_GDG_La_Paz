@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class DialogWidget extends StatefulWidget {
-  const DialogWidget({super.key});
+  final String talk;
+
+  const DialogWidget({super.key, required this.talk});
 
   @override
   State<DialogWidget> createState() => _DialogWidgetState();
@@ -11,6 +14,7 @@ class _DialogWidgetState extends State<DialogWidget> {
   final _textController = TextEditingController(text: '');
   @override
   Widget build(BuildContext context) {
+    DateTime date = DateTime.now();
     return AlertDialog(
       title: const Text(
         'Realiza una Pregunta!',
@@ -35,7 +39,17 @@ class _DialogWidgetState extends State<DialogWidget> {
           child: const Text('Cancelar'),
         ),
         TextButton(
-          onPressed: () => Navigator.pop(context, 'OK'),
+          onPressed: () async {
+            await FirebaseFirestore.instance.collection('preguntas').add({
+              'charla': widget.talk,
+              'estado': false,
+              'fecha': date.toString(),
+              'idUsuario': '',
+              'nombreUsuario': '',
+              'pregunta': _textController.text,
+            });
+            Navigator.pop(context);
+          },
           child: const Text('Enviar'),
         ),
       ],
