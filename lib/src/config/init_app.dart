@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:io_extended_2023_gdg_la_paz/main.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/onboarding/onboarding_page.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/portal/portal_page.dart';
 
 import '../plugins/auth/auth.dart';
 import '../ui/pages/auth/login_page.dart';
