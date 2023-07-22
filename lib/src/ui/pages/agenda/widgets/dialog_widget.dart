@@ -50,7 +50,7 @@ class _DialogWidgetState extends State<DialogWidget> {
         TextButton(
           onPressed: () async {
             try {
-              await service.sendQuestion(widget.talk, _textController.text);
+              await service.sendQuestion(widget.talk, _textController.text, _mostrarSnackbar);
               Navigator.pop(context);
             } catch (e) {}
             // await FirebaseFirestore.instance.collection('preguntas').add({
@@ -80,5 +80,13 @@ class _DialogWidgetState extends State<DialogWidget> {
         onChanged: (value) {},
       ),
     );
+  }
+
+  void _mostrarSnackbar(String mensaje) {
+    final snackbar = SnackBar(
+      content: Text(mensaje),
+      duration: const Duration(milliseconds: 1500),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }

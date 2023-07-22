@@ -32,11 +32,10 @@ class AgendaService extends ServiceConfig {
     }
   }
 
-  Future<void> sendQuestion(String talk, String question) async {
+  Future<void> sendQuestion(String talk, String question, dynamic handlerMessage) async {
     final DateTime date = DateTime.now();
     final response = await firestoreFetch('/');
     if (response.status == StatusNetwork.connected) {
-      print('hay internet');
       await FirebaseFirestore.instance.collection('preguntas').add({
         'charla': talk,
         'estado': false,
@@ -45,6 +44,10 @@ class AgendaService extends ServiceConfig {
         'nombreUsuario': /* '${user.firstName} ${user.lastName}' */ '',
         'pregunta': question,
       });
+      handlerMessage('Pregunta Enviada');
+      
+    } else {
+      handlerMessage('No estas conectado a internet \nIntenta de nuevo');
     }
     // if (response.status == StatusNetwork.noInternet ||
     //     response.status == StatusNetwork.timeout){
