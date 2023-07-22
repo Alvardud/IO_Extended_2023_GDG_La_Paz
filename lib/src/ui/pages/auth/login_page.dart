@@ -43,17 +43,15 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Align(
-                    child: Text(
-                      'Log In your account',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 24),
+                  Align(
+                    child: Image.asset(
+                      'assets/google-io-logo.png',
                     ),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
-                  _buildTitle('User'),
+                  _buildTitle('Correo'),
                   const SizedBox(
                     height: 8,
                   ),
@@ -69,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 16,
                   ),
-                  _buildTitle('Password'),
+                  _buildTitle('Contraseña'),
                   const SizedBox(
                     height: 8,
                   ),
@@ -113,10 +111,13 @@ class _LoginPageState extends State<LoginPage> {
                           )
                         : ElevatedButton(
                             onPressed: _onTapLogin,
-                            child: const Text('Log In',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ))),
+                            child: const Text(
+                              'Ingresar',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
                   ),
                   const SizedBox(
                     height: 8,
@@ -147,7 +148,6 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {});
       try {
         await loginService.signInWithEmailAndPassword(userAuth);
-
       } catch (e) {
         print(e);
         isLoading = false;
