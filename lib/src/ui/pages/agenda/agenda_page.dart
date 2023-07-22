@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_service.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
@@ -18,12 +19,14 @@ class AgendaPage extends StatefulWidget {
 }
 
 class _AgendaPageState extends State<AgendaPage> {
-  final service = AgendaService();
-
+  final service = AgendaService(AgendaPage.route, 'usuarios');
   @override
   void initState() {
     super.initState();
     service.getTechnicalTalks();
+/*     final auth = Auth();
+    final uid = auth.getUid() ?? '';
+    service.getUser(uid); */
     service.getCodelabs();
   }
 

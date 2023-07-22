@@ -1,8 +1,10 @@
 import 'package:io_extended_2023_gdg_la_paz/src/constants/agenda_data.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/models/talk.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/models/user.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/plugins/auth/auth.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_store.dart';
 
-class AgendaService {
+class AgendaService extends ServiceConfig {
   final store = AgendaStore.store;
 
   void getAllTalks() {

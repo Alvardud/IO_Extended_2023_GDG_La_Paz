@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/models/talk.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/models/user.dart';
 
 class AgendaStore with ChangeNotifier {
   AgendaStore._();
