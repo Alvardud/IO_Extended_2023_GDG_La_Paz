@@ -19,7 +19,7 @@ class DialogWidget extends StatefulWidget {
 class _DialogWidgetState extends State<DialogWidget> {
   final _textController = TextEditingController(text: '');
   final auth = Auth();
-
+  final service = AgendaService(AgendaPage.route, 'usuarios');
   @override
   Widget build(BuildContext context) {
     DateTime date = DateTime.now();
@@ -49,15 +49,18 @@ class _DialogWidgetState extends State<DialogWidget> {
         ),
         TextButton(
           onPressed: () async {
-            await FirebaseFirestore.instance.collection('preguntas').add({
-              'charla': widget.talk,
-              'estado': false,
-              'fecha': date.toString(),
-              'idUsuario': /* auth.getUid()*/'',
-              'nombreUsuario': /* '${user.firstName} ${user.lastName}' */'',
-              'pregunta': _textController.text,
-            });
-            Navigator.pop(context);
+            try {
+              await service.sendQuestion(widget.talk, _textController.text);
+              Navigator.pop(context);
+            } catch (e) {}
+            // await FirebaseFirestore.instance.collection('preguntas').add({
+            //   'charla': widget.talk,
+            //   'estado': false,
+            //   'fecha': date.toString(),
+            //   'idUsuario': /* auth.getUid()*/'',
+            //   'nombreUsuario': /* '${user.firstName} ${user.lastName}' */'',
+            //   'pregunta': _textController.text,
+            // });
           },
           child: const Text('Enviar'),
         ),
