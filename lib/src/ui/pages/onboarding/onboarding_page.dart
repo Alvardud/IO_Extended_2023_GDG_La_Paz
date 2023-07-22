@@ -42,12 +42,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
         description:
             'Tendremos muchas actividades de las que podras participar para ganar puntos y poder reclamar premios!\n\nEncontraras tus puntos acumulados en la información de tu perfil.',
       ),
-      _OnboardingItem(
-        imagePath: 'assets/images/onboarding-step-2.png',
-        title: 'Agrega nuevos amigos',
-        description:
-            'Encuentra el código QR en tu perfil para que puedan agregarte como amigo en la aplicación.\n\nUsa el scanner QR para agregar a tus nuevos amigos.',
-      ),
+      // _OnboardingItem(
+      // imagePath: 'assets/images/onboarding-step-2.png',
+      // title: 'Agrega nuevos amigos',
+      // description:
+      // 'Encuentra el código QR en tu perfil para que puedan agregarte como amigo en la aplicación.\n\nUsa el scanner QR para agregar a tus nuevos amigos.',
+      // ),
       // _OnboardingItem(
       // imagePath: 'assets/images/onboarding-step-3.png',
       // title: 'Descarga recursos',
@@ -119,7 +119,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
               ),
               VerticalSpacing.m,
-              const _DotsIndicator(),
+              // const _DotsIndicator(),
             ],
           ),
         ),
@@ -135,7 +135,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         backgroundColor: MaterialStatePropertyAll(AppColors.primary),
         side: MaterialStatePropertyAll(
           BorderSide(
-            color: AppColors.primary,
+            color: Colors.white,
             width: 1.0,
             style: BorderStyle.solid,
           ),
@@ -173,9 +173,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: SpacingValues.m),
           child: Text(
-            'OMITIR',
+            'CONTINUAR',
             style: TextStyle(
-              color: AppColors.primary,
+              color: Colors.white,
             ),
             textAlign: TextAlign.center,
           ),
@@ -264,9 +264,6 @@ class _DotsIndicator extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       children: [
-        _animatedDot(0),
-        HorizontalSpacing.m,
-        _animatedDot(1),
         // HorizontalSpacing.m,
         // _animatedDot(2),
       ],

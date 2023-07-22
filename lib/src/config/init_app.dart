@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:io_extended_2023_gdg_la_paz/main.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/onboarding/onboarding_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/portal/portal_page.dart';
 
@@ -41,7 +42,7 @@ class InitAppController {
     );
     // await Future.delayed(const Duration(seconds: 2));
     navigatorKey.currentState?.pushNamedAndRemoveUntil(
-      OnboardingPage.route,
+      HomePage.route,
       (route) => false,
     );
     return;

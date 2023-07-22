@@ -11,4 +11,10 @@ List<Map<String, dynamic>> sponsorsData = [
     'imageUrl': 'assets/sponsors/google.jpeg',
     'backgroundColor': 'FFFFFF',
   },
+  {
+    'name': 'Kernel',
+    'facebookUrl': 'https://www.linkedin.com/company/kernell',
+    'imageUrl': 'assets/sponsors/kernel.jpeg',
+    'backgroundColor': 'FFFFFF'
+  }
 ];

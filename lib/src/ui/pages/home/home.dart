@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/locator/user_locator.dart';
-import 'package:io_extended_2023_gdg_la_paz/src/plugins/firebase/firestore_service.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/plugins/theme_controller.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/agenda/agenda_page.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home_service.dart';
@@ -49,6 +48,10 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/google-io-logo.png',
+            ),
+            VerticalSpacing.xxl,
             VerticalSpacing.l,
             OptionCard(
               backgroundColor: const Color(0xff121215),
@@ -168,6 +171,27 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 const SizedBox(
                                   height: 32,
+                                ),
+                                FutureBuilder(
+                                  future: FirebaseFirestore.instance
+                                      .collection('usuarios')
+                                      .doc(userLocator.userApp.id)
+                                      .get(),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      final data = snapshot.data!.data()
+                                          as Map<String, dynamic>;
+                                      return Text(
+                                        'Puntaje: ${data['score'] as int}',
+                                        style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      );
+                                    }
+
+                                    return const SizedBox();
+                                  },
                                 ),
                                 SizedBox(
                                   height: 250,

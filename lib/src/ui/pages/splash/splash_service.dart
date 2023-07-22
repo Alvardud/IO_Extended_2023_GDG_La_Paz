@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/config/service_config.dart';
 import 'package:io_extended_2023_gdg_la_paz/src/locator/user_locator.dart';
+import 'package:io_extended_2023_gdg_la_paz/src/ui/pages/home/home.dart';
 
 import '../../../../main.dart';
 import '../../../models/user_app.dart';
@@ -33,6 +34,6 @@ class SplashService extends ServiceConfig {
     );
     await Future.delayed(const Duration(seconds: 2));
     navigatorKey.currentState
-        ?.pushNamedAndRemoveUntil(OnboardingPage.route, (route) => false);
+        ?.pushNamedAndRemoveUntil(HomePage.route, (route) => false);
   }
 }

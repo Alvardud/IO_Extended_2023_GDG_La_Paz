@@ -28,6 +28,7 @@ class SponsorsPage extends StatelessWidget {
                   ),
                   child: SponsorsCard(
                     sponsor: sponsor,
+                    fit: sponsor.name == 'Kernel',
                   ),
                 );
               }).toList(),

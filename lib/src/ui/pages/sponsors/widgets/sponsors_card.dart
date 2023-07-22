@@ -7,9 +7,11 @@ class SponsorsCard extends StatelessWidget {
   const SponsorsCard({
     super.key,
     required this.sponsor,
+    this.fit = false,
   });
 
   final Sponsor sponsor;
+  final bool fit;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class SponsorsCard extends StatelessWidget {
                     color: sponsor.backgroundColor,
                     child: Image.asset(
                       sponsor.imageUrl,
-                      fit: BoxFit.fitHeight,
+                      fit: fit ? BoxFit.fitWidth : BoxFit.fitHeight,
                     ),
                   ),
                 ),

@@ -143,7 +143,7 @@ class _TriviasPageState extends State<TriviasPage> {
                                 margin: const EdgeInsets.only(right: 16),
                                 child: const Icon(
                                   Icons.check_circle_outline_outlined,
-                                  color: AppColors.googleGreen,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
